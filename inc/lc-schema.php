@@ -10,20 +10,67 @@
 defined( 'ABSPATH' ) || exit;
 
 
-// Remove Organization schema added by Yoast SEO to prevent duplicates.
+/**
+ * Clean Yoast schema for iology.
+ *
+ * Removes Yoast's Organization and Person pieces,
+ * and rewrites all Yoast references so they point
+ * to the Optician business entity (#business).
+ */
 add_filter(
     'wpseo_schema_graph_pieces',
     function ( $pieces, $context ) {
+
         foreach ( $pieces as $index => $piece ) {
+
+            // Remove Yoast Organisation
             if ( $piece instanceof \Yoast\WP\SEO\Generators\Schema\Organization ) {
                 unset( $pieces[ $index ] );
+                continue;
+            }
+
+            // Remove Yoast Person (author schema)
+            if ( $piece instanceof \Yoast\WP\SEO\Generators\Schema\Person ) {
+                unset( $pieces[ $index ] );
+                continue;
+            }
+
+            // Rewrite Yoast WebPage and WebSite references
+            if ( method_exists( $piece, 'context' ) ) {
+                $context_data = $piece->context;
+
+                // Replace Yoast's #organization ID with your #business ID
+                if ( isset( $context_data['id'] ) && $context_data['id'] === 'https://iology.co.uk/#organization' ) {
+                    $context_data['id'] = 'https://iology.co.uk/#business';
+                }
+
+                // Rewrite publisher
+                if ( isset( $context_data['publisher'] ) &&
+                     isset( $context_data['publisher']['@id'] ) &&
+                     $context_data['publisher']['@id'] === 'https://iology.co.uk/#organization'
+                ) {
+                    $context_data['publisher']['@id'] = 'https://iology.co.uk/#business';
+                }
+
+                // Rewrite about → #business
+                if ( isset( $context_data['about'] ) &&
+                     isset( $context_data['about']['@id'] ) &&
+                     $context_data['about']['@id'] === 'https://iology.co.uk/#organization'
+                ) {
+                    $context_data['about']['@id'] = 'https://iology.co.uk/#business';
+                }
+
+                // Push changes back into piece
+                $piece->context = $context_data;
             }
         }
+
         return $pieces;
     },
     20,
     2
 );
+
 
 /**
  * Output schema markup for the site.
@@ -45,6 +92,7 @@ function lc_output_schema() {
             'description' => 'Independent optician in Barking offering comprehensive eye tests, contact lenses, glasses, and family eye care.',
             'slogan'      => 'Your local, independent optician.',
             'telephone'   => '020 8594 2714',
+            'priceRange'  => '£',
             'address'     => array(
                 '@type'           => 'PostalAddress',
                 'streetAddress'   => '50 Ripple Road',
@@ -82,10 +130,10 @@ function lc_output_schema() {
             'itemReviewed' => array(
                 '@id' => 'https://iology.co.uk/#business',
             ),
-            'ratingValue'  => get_field( 'ratingvalue', 'options' ),
-            'reviewCount'  => get_field( 'reviewcount', 'options' ),
-            'bestRating'   => get_field( 'bestrating', 'options' ),
-            'worstRating'  => get_field( 'worstrating', 'options' ),
+            'ratingValue'  => (float) get_field( 'ratingvalue', 'options' ),
+            'reviewCount'  => (int) get_field( 'reviewcount', 'options' ),
+            'bestRating'   => (int) get_field( 'bestrating', 'options' ),
+            'worstRating'  => (int) get_field( 'worstrating', 'options' ),
         );
         echo '<script type="application/ld+json">';
         // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
