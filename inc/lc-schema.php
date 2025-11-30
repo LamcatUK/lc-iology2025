@@ -72,32 +72,6 @@ add_filter(
 );
 
 /**
- * Rewrite Yoast JSON-LD so all references to #organization
- * point to our #business entity.
- */
-add_filter(
-    'wpseo_json_ld_output',
-    function( $data, $context ) {
-
-        // Only modify homepage output
-        if ( ! is_front_page() ) {
-            return $data;
-        }
-
-        // replace all references to Yoast's #organization ID
-        $data = str_replace(
-            'https://iology.co.uk/#organization',
-            'https://iology.co.uk/#business',
-            $data
-        );
-
-        return $data;
-    },
-    999,
-    2
-);
-
-/**
  * Output schema markup for the site.
  *
  * @return void
