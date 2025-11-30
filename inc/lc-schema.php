@@ -9,6 +9,9 @@
 
 defined( 'ABSPATH' ) || exit;
 
+// Disable Yoast's organization schema completely.
+add_filter( 'wpseo_schema_organization', '__return_false' );
+add_filter( 'wpseo_schema_company_logo_id', '__return_false' );
 
 /**
  * Clean Yoast schema for iology.
