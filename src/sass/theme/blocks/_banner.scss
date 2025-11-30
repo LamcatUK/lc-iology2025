@@ -1,0 +1,17 @@
+.banner {
+  background-color: var(--col-blue-700);
+  &__content {
+    font-size: 1.4rem;
+    span {
+      font-weight: 600;
+    }
+  }
+  a {
+    color: white;
+    text-decoration: none;
+    transition: opacity 0.2s ease-in-out;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}

@@ -1,0 +1,196 @@
+.news {
+
+    &__inner {
+        height: 100%;
+        display: block;
+        text-decoration: none;
+        color: $black;
+       
+        border-radius: 0.25rem;
+        overflow: hidden;
+
+        transition: all 0.2s ease-in-out;
+        box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+        
+        &:hover {
+            box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+            transform: translateY(2px);
+        }
+    }
+
+    &__image {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    &__bottom {
+        padding-bottom: 0.5rem;
+        margin-bottom: 0.5rem;
+        .news__meta {
+            background-color: $primary;
+            color: white;
+            padding: 0.5rem;
+        }
+    }
+    &__title {
+        font-size: 1.167rem;
+        font-weight: 600;
+        line-height: 1.1;
+        margin-bottom: 0.25rem;
+    }
+    &__date {
+        position: relative;
+        color: $secondary;
+        font-size: 0.778rem;
+    }
+    &__intro {
+        margin-bottom: 0.5rem;
+        height: 6rem;
+        overflow: hidden;
+        padding: 0.5rem;
+        
+    }
+
+    &__link {
+        text-align: right;
+        margin-right: 20px;
+        position: relative;
+        font-weight: 700;
+    }
+}
+.single-news .news__date {
+    color: $primary;
+    font-size: 1rem;
+}
+
+// .page-meta {
+//     margin-bottom: 1rem;
+//     font-weight: 700;
+//     a {
+//         position: relative;
+//         left: 20px;
+//         text-decoration: none;
+//         color: $primary;
+//         &::before {
+//             position: absolute;
+//             content: "\f104";
+//             font-family: "font awesome 6 free";
+//             left: -15px;
+//             transition: all 0.3s ease;
+//         }
+//         &:hover::before {
+//             left: -20px;
+//         }
+//     }
+// }
+
+.latest_blogs {
+    position: relative;
+    z-index: 0;
+    &::before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        background-image: url(../img/prenplants-flower--dk.svg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        height: 90%;
+        left: -8rem;
+        top: 50%;
+        width: 420px;
+        transform: translateY(-50%);
+        opacity: 0.6;
+    }
+}
+
+.recent {
+    &__post {
+        display: block;
+        text-decoration: none;
+        transition: all 0.2s ease-in-out;
+        border-radius: 0.25rem;
+        overflow: hidden;
+        box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+        &:hover {
+            box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+            transform: translateY(2px);
+        }
+    }
+    &__image {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    &__inner {
+        padding: 0.5rem 1rem;
+        background-color: $primary;
+        color: white;
+        min-height: 5.5rem;
+    }
+    &__date {
+        color: $secondary;
+        font-size: 0.778rem;
+    }
+    &__title {
+        font-size: 1.167rem;
+        font-weight: 600;
+    }
+}
+// .latest_blogs {
+//     .recent {
+//         &__post {
+//             background-color: white;
+//             display: block;
+//             color: $black;
+//             text-decoration: none;
+//             padding-bottom: 0.5rem;
+//             margin-bottom: 0.5rem;
+//             border-bottom: 1px solid $grey-400;
+//         }
+//         &__image {
+//             width: 100%;
+//             aspect-ratio: 16 / 9;
+//             background-position: center;
+//             background-repeat: no-repeat;
+//             background-size: cover;
+//         }
+//         &__title {
+//             font-weight: 700;
+//         }
+//         &__date {
+//             font-size: 0.9rem;
+//         }
+//     }
+// }
+
+.navigation {
+    display: flex;
+    justify-content: center;
+    li a,
+    li a:hover,
+    li.active a,
+    li.disabled {
+        color: $black;
+        text-decoration:none;
+        cursor: pointer;
+        padding: 12px;
+        padding: 0.75rem;
+    }
+    li {
+        display: inline;
+    }
+    li a:hover,
+    li.active a {
+        color: $primary;
+    }
+}
+
+.newsletter {
+    background-color: $grey-100;
+}

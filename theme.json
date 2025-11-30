@@ -1,0 +1,133 @@
+{
+  "version": 2,
+  "settings": {
+    "appearanceTools": true,
+    "color": {
+      "defaultPalette": false,
+      "palette": [
+        {
+          "name": "white",
+          "slug": "white",
+          "color": "#ffffff",
+          "origin": "theme"
+        },
+        {
+          "name": "black",
+          "slug": "black",
+          "color": "#0f110c",
+          "origin": "theme"
+        },
+        {
+          "name": "ivory",
+          "slug": "ivory",
+          "color": "var(--col-white)",
+          "origin": "theme"
+        },
+        {
+          "name": "blue-50",
+          "slug": "blue-50",
+          "color": "hsl(209, 26%, 97%)",
+          "origin": "theme"
+        },
+        {
+          "name": "blue-100",
+          "slug": "blue-100",
+          "color": "hsl(209, 26%, 78%)",
+          "origin": "theme"
+        },
+        {
+          "name": "blue-400",
+          "slug": "blue-400",
+          "color": "hsl(209, 26%, 60%)",
+          "origin": "theme"
+        },
+        {
+          "name": "blue-700",
+          "slug": "blue-700",
+          "color": "hsl(209, 77%, 19%)",
+          "origin": "theme"
+        },
+        {
+          "name": "primary",
+          "slug": "primary",
+          "color": "var(--col-blue-400)",
+          "origin": "theme"
+        },
+        {
+          "name": "primary-dark",
+          "slug": "primary-dark",
+          "color": "var(--col-blue-700)",
+          "origin": "theme"
+        },
+        {
+          "name": "primary-light",
+          "slug": "primary-light",
+          "color": "var(--col-blue-100)",
+          "origin": "theme"
+        },
+        {
+          "name": "secondary",
+          "slug": "secondary",
+          "color": "#e5393d",
+          "origin": "theme"
+        },
+        {
+          "name": "grey-100",
+          "slug": "grey-100",
+          "color": "#f3f8f6",
+          "origin": "theme"
+        },
+        {
+          "name": "grey-200",
+          "slug": "grey-200",
+          "color": "#d5e5e1",
+          "origin": "theme"
+        }
+      ]
+    },
+    "typography": {
+      "fontSizes": [
+        {
+          "name": "300",
+          "slug": "300",
+          "size": "14px"
+        },
+        {
+          "name": "350",
+          "slug": "350",
+          "size": "16px"
+        },
+        {
+          "name": "400",
+          "slug": "400",
+          "size": "18px"
+        },
+        {
+          "name": "500",
+          "slug": "500",
+          "size": "22px"
+        },
+        {
+          "name": "600",
+          "slug": "600",
+          "size": "32px"
+        },
+        {
+          "name": "700",
+          "slug": "700",
+          "size": "42px"
+        },
+        {
+          "name": "800",
+          "slug": "800",
+          "size": "60px"
+        },
+        {
+          "name": "900",
+          "slug": "900",
+          "size": "clamp(3.333rem, 2.475vw + 2.797rem, 4.722rem)"
+        }
+      ]
+    }
+  }
+}

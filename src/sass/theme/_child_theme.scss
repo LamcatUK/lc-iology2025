@@ -1,0 +1,90 @@
+@import "typography";
+@import "buttons";
+@import "header";
+@import "footer";
+@import "blocks/blocks";
+// @import "blog";
+
+// * {
+//     outline: 1px solid red;
+// }
+
+// Adjust fixed header when admin bar is present
+.admin-bar header.fixed-top {
+  top: 32px; // Admin bar height
+}
+
+main {
+  margin-top: 64px;
+  // margin-top: 113px;
+  @media (min-width: 992px) {
+    margin-top: 90px;
+  }
+  position: relative;
+}
+
+a.noline {
+  text-decoration: none;
+}
+
+a.anchor {
+  display: block;
+  position: relative;
+  top: -100px;
+  visibility: hidden;
+}
+
+hr {
+  color: var(--col-grey-100);
+  opacity: 1;
+}
+
+.mw-95ch {
+  max-width: 95ch;
+}
+.mw-80ch {
+  max-width: 80ch;
+  margin: auto;
+}
+.mw-65ch {
+  max-width: 65ch;
+}
+.mw-50ch {
+  max-width: 50ch;
+}
+
+.cols-lg-2 {
+  @media (min-width: 992px) {
+    columns: 2;
+  }
+}
+
+// bread
+.page-meta {
+  font-size: 0.8rem;
+  #breadcrumbs {
+    img {
+      max-width: 22px;
+    }
+  }
+}
+
+// map
+.map {
+  iframe {
+    display: block;
+  }
+}
+
+
+:where(.wp-block-columns.has-background) {
+  padding: 0;
+}
+
+.wp-block-columns.breakout {
+  margin-bottom: 0;
+}
+
+.fa-ul {
+  margin-left: 1.5rem;
+}

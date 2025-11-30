@@ -1,0 +1,61 @@
+.btn {
+  font-size: 0.889rem;
+  border-radius: 2rem !important;
+  font-weight: 600;
+  box-shadow:
+    rgba(0, 0, 0, 0.19) 0px 10px 20px,
+    rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    box-shadow:
+      rgba(0, 0, 0, 0.12) 0px 1px 3px,
+      rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    transform: translateY(2px);
+  }
+  min-width: 168px;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+}
+
+.btn-primary {
+  border: 1px solid var(--col-secondary) !important;
+  background-color: var(--col-secondary) !important;
+  color: $white !important;
+  &:hover {
+    color: $white !important;
+    border-color: var(--col-secondary) !important;
+    background-color: var(--col-secondary) !important;
+  }
+}
+.btn-secondary {
+  border: 1px solid var(--col-secondary) !important;
+  background-color: white !important;
+  color: $black !important;
+  &:hover {
+    color: $black;
+    border-color: var(--col-secondary);
+    background-color: white;
+  }
+}
+.btn-submit {
+  border: none !important;
+  border-radius: 0.25rem !important;
+  // background-color: $grey-900 !important;
+  color: white !important;
+  text-transform: uppercase !important;
+  font-weight: 700 !important;
+  transition: all 0.3s ease;
+  &:hover {
+    // background-color: $grey-700 !important;
+    color: $black !important;
+  }
+}
+
+.wp-block-button__link {
+  @extend .btn;
+  @extend .btn-primary;
+}
+
+input[type="submit"]:disabled {
+  @extend .btn-secondary;
+}

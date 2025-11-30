@@ -1,0 +1,59 @@
+.footer {
+  font-size: 0.778rem;
+
+  background-color: var(--col-blue-700);
+  color: white;
+  a {
+    color: white;
+    text-decoration: none;
+    transition: all 0.15s ease-in-out;
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+  .logo {
+    width: 200px;
+    max-width: 100%;
+    // @media (min-width:1120px) {
+    //     max-width: 250px;
+    // }
+  }
+
+  ul {
+    list-style-type: none;
+    padding-inline-start: 0;
+    li {
+      // text-transform: uppercase;
+      font-size: 0.9rem;
+      margin-bottom: 0.25rem;
+    }
+  }
+
+  .social {
+    a {
+      color: white;
+      text-decoration: none;
+      transition: all 0.15s ease-in-out;
+      font-size: 1.4rem;
+      &:not(:last-of-type) {
+        margin-right: 0.5rem;
+      }
+      &:hover {
+        opacity: 0.6;
+      }
+    }
+  }
+}
+.colophon {
+  background-color: var(--col-black);
+  color: white;
+  font-size: 0.667rem;
+  a {
+    color: white;
+    text-decoration: none;
+    transition: all 0.15s ease-in-out;
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+}

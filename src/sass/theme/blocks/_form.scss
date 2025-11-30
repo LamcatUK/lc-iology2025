@@ -1,0 +1,35 @@
+.lcform {
+    .wpcf7 {
+        max-width: unset;
+    }
+}
+
+
+.wpcf7-form-control,
+.wpcf7-form-select {
+    border-radius: 0.25rem !important;
+}
+
+
+form label {
+    margin-bottom: 0.25rem;
+    font-weight: 600;
+    font-size: 0.889rem;
+}
+
+.wpcf7-acceptance {
+    .wpcf7-list-item {
+        margin-left: 0 !important;
+        margin-bottom: 1rem;
+        label {
+            display: flex;
+            font-size: 0.889rem;
+            gap: 1rem;
+        }
+    }
+
+    .frmCheck {
+        margin-top: 0.25rem;
+        margin-right: 0.5rem;
+    }
+}

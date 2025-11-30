@@ -1,0 +1,95 @@
+.card {
+  height: 100%;
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+  border: none;
+  background-color: var(--col-blue-50);
+  &--featured {
+    display: flex;
+    justify-content: center;
+    color: white;
+    background-color: var(--col-blue-700);
+  }
+  a {
+    color: var(--col-secondary);
+    &:hover {
+      color: color-mix(in srgb, var(--col-secondary) 90%, white 10%);
+    }
+  }
+}
+
+.three_cards {
+  position: relative;
+  background-color: var(--col-blue-50);
+  text-align: center;
+  .card__icon {
+    max-height: 110px;
+    img {
+      max-height: 100%;
+    }
+    margin-bottom: 0.5rem;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    height: 15rem;
+    background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg id='Layer_2' data-name='Layer 2' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1366 234.64'%3E%3Cdefs%3E%3Cstyle%3E .cls-1 %7B fill: %2375aed6; %7D .cls-2 %7B fill: %23529acc; %7D %3C/style%3E%3C/defs%3E%3Cg id='Layer_1-2' data-name='Layer 1'%3E%3Cpath class='cls-2' d='m1366,0v197.8c-224.32,24.35-452.2,36.84-683,36.84S224.32,222.15,0,197.8V0h1366Z'/%3E%3Cpath class='cls-1' d='m723.34,21.9c0,91.13-73.87,165-165,165S393.34,113.03,393.34,21.9c0-7.42.49-14.73,1.45-21.9h327.1c.96,7.17,1.45,14.48,1.45,21.9Z'/%3E%3Cpath class='cls-1' d='m1366,0v90.58c-39.15,30.89-88.59,49.32-142.33,49.32-95.05,0-176.63-57.65-211.68-139.9h354.01Z'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+
+.card-image {
+  @extend .card;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  img {
+    margin: 0 !important;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+/*
+.three_cards {
+    background-color: $grey-100;
+    a {
+        text-decoration: none;
+    }
+    .card {
+        border-radius: 0.25rem;
+        overflow: hidden;
+        border: none;
+        transition: all 0.2s ease-in-out;
+        box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+        &__image {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        &__bottom {
+            background-color: $primary;
+            color: white;
+            font-weight: 600;
+            font-size: 1.167rem;
+            padding: 1rem 0.5rem;
+        }
+        &:hover {
+            box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+            transform: translateY(2px);
+        }
+    }
+}
+*/
