@@ -7,7 +7,6 @@
  * @package lc-iology2025
  */
 
-
 defined( 'ABSPATH' ) || exit;
 
 ?>

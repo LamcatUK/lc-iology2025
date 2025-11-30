@@ -23,44 +23,44 @@ add_filter(
 
         foreach ( $pieces as $index => $piece ) {
 
-            // Remove Yoast Organisation
+            // Remove Yoast Organisation.
             if ( $piece instanceof \Yoast\WP\SEO\Generators\Schema\Organization ) {
                 unset( $pieces[ $index ] );
                 continue;
             }
 
-            // Remove Yoast Person (author schema)
+            // Remove Yoast Person (author schema).
             if ( $piece instanceof \Yoast\WP\SEO\Generators\Schema\Person ) {
                 unset( $pieces[ $index ] );
                 continue;
             }
 
-            // Rewrite Yoast WebPage and WebSite references
+            // Rewrite Yoast WebPage and WebSite references.
             if ( method_exists( $piece, 'context' ) ) {
                 $context_data = $piece->context;
 
-                // Replace Yoast's #organization ID with your #business ID
-                if ( isset( $context_data['id'] ) && $context_data['id'] === 'https://iology.co.uk/#organization' ) {
+                // Replace Yoast's #organization ID with your #business ID.
+                if ( isset( $context_data['id'] ) && 'https://iology.co.uk/#organization' === $context_data['id'] ) {
                     $context_data['id'] = 'https://iology.co.uk/#business';
                 }
 
-                // Rewrite publisher
+                // Rewrite publisher.
                 if ( isset( $context_data['publisher'] ) &&
-                     isset( $context_data['publisher']['@id'] ) &&
-                     $context_data['publisher']['@id'] === 'https://iology.co.uk/#organization'
+                    isset( $context_data['publisher']['@id'] ) &&
+                    'https://iology.co.uk/#organization' === $context_data['publisher']['@id']
                 ) {
                     $context_data['publisher']['@id'] = 'https://iology.co.uk/#business';
                 }
 
-                // Rewrite about → #business
+                // Rewrite about → #business.
                 if ( isset( $context_data['about'] ) &&
-                     isset( $context_data['about']['@id'] ) &&
-                     $context_data['about']['@id'] === 'https://iology.co.uk/#organization'
+                    isset( $context_data['about']['@id'] ) &&
+                    'https://iology.co.uk/#organization' === $context_data['about']['@id']
                 ) {
                     $context_data['about']['@id'] = 'https://iology.co.uk/#business';
                 }
 
-                // Push changes back into piece
+                // Push changes back into piece.
                 $piece->context = $context_data;
             }
         }
