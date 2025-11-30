@@ -9,6 +9,22 @@
 
 defined( 'ABSPATH' ) || exit;
 
+
+// Remove Organization schema added by Yoast SEO to prevent duplicates.
+add_filter(
+    'wpseo_schema_graph_pieces',
+    function ( $pieces, $context ) {
+        foreach ( $pieces as $index => $piece ) {
+            if ( $piece instanceof \Yoast\WP\SEO\Generators\Schema\Organization ) {
+                unset( $pieces[ $index ] );
+            }
+        }
+        return $pieces;
+    },
+    20,
+    2
+);
+
 /**
  * Output schema markup for the site.
  *
@@ -41,6 +57,7 @@ function lc_output_schema() {
                 'latitude'  => 51.5364754,
                 'longitude' => 0.0811518,
             ),
+            'hasMap'      => 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2481.731990079789!2d0.07857687662182146!3d51.536475371819925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8a66d4f21a521%3A0xab6a5ee20e66e26a!2sIology!5e0!3m2!1sen!2suk!4v1764530194062!5m2!1sen!2suk',
             'sameAs'      => array(
                 'https://www.instagram.com/iology1',
                 'https://www.google.com/maps/place/?q=place_id:ChIJIaUhT22m2EcRauJmDuJeaqs',
