@@ -149,6 +149,49 @@ add_action( 'wp_enqueue_scripts', 'lc_theme_enqueue' );
 remove_action( 'wp_enqueue_scripts', 'wp_enqueue_global_styles' );
 remove_action( 'wp_body_open', 'wp_global_styles_render_svg_filters' );
 
+/*------------ LOGIN BITS -----*/
+
+/**
+ * Custom login logo.
+ */
+function wpb_login_logo() {
+	?>
+<style type="text/css">
+	#login h1 a,
+	.login h1 a {
+		background-image: url(<?php echo esc_url( get_stylesheet_directory_uri() . '/img/iology-logo--colour.svg' ); ?>);
+		height: 64px;
+		width: 180px;
+		background-size: contain;
+		background-repeat: no-repeat;
+		padding-bottom: 10px;
+	}
+</style>
+	<?php
+}
+add_action( 'login_enqueue_scripts', 'wpb_login_logo' );
+
+/**
+ * Change login logo URL to home URL.
+ */
+function wpb_login_logo_url() {
+	return home_url();
+}
+add_filter( 'login_headerurl', 'wpb_login_logo_url' );
+
+/**
+ * Change login logo title.
+ */
+function wpb_login_logo_url_title() {
+	return 'Your Site Name and Info';
+}
+add_filter( 'login_headertitle', 'wpb_login_logo_url_title' );
+
+/**
+ * Disable language dropdown on login.
+ */
+add_filter( 'login_display_language_dropdown', '__return_false' );
+
 /**
  * Disable the emojis.
  */
@@ -228,3 +271,32 @@ add_action(
    </style>';
     }
 );
+
+/**
+ * WhatsApp button shortcode.
+ *
+ * @param array $atts Shortcode attributes.
+ * @return string WhatsApp button HTML.
+ */
+function whatsapp( $atts ) {
+    ob_start();
+
+    $default = array(
+        'message' => "Hi, I'm contacting you from the iology website.",
+        'label'   => 'WhatsApp'
+    );
+
+    $a       = shortcode_atts($default, $atts);
+    $message = htmlspecialchars($a['message'], ENT_QUOTES);
+    $label   = $a['label'];
+
+    $phone = parse_phone(get_field('mobile', 'options'));
+
+    ?>
+<a href="https://api.whatsapp.com/send?phone=<?=$phone?>&text=<?=$message?>"
+    class="btn btn-primary me-2 mb-2" target="_blank"><?=$label?></a>
+    <?php
+
+    return ob_get_clean();
+}
+add_shortcode( 'whatsapp_button', 'whatsapp' );
