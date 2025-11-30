@@ -19,7 +19,7 @@ defined('ABSPATH') || exit;
                         class="logo" width="93" height="32" alt="iology Limited">
                 </div>
                 Iology incorporating Aves Opticians<br>
-                55 Ripple Road, Barking,<br>
+                50 Ripple Road, Barking,<br>
                 England, IG11 7PG
             </div>
             <div class="col-md-6 col-lg-4">
