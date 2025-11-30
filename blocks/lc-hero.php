@@ -20,8 +20,8 @@ $margin = $is_banner_page ? 'mb-5' : '';
 <!-- hero -->
 <section class="hero <?= esc_attr( $margin ); ?>"
     style="background-image:url(<?= esc_url( wp_get_attachment_image_url( get_field( 'background' ), 'full' ) ); ?>)">
-    <div class="container-xl h-100">
-        <div class="row h-100 mx-0">
+    <div class="container-xl">
+        <div class="row mx-0">
             <div class="col-md-7 my-auto">
                 <h1><?= esc_html( get_field( 'title' ) ); ?></h1>
                 <h2 class="mb-4">

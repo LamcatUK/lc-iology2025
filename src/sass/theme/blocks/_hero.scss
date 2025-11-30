@@ -1,5 +1,7 @@
 .hero {
-  height: 500px;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
   background-color: var(--col-grey-100);
   position: relative;
   overflow: hidden;
