@@ -77,18 +77,23 @@ add_filter(
  */
 add_filter(
     'wpseo_json_ld_output',
-    function ( $data, $context ) {
+    function( $data, $context ) {
 
-        // Replace Yoast's phantom ID with your real business ID
+        // Only modify homepage output
+        if ( ! is_front_page() ) {
+            return $data;
+        }
+
+        // replace all references to Yoast's #organization ID
         $data = str_replace(
-            '"https://iology.co.uk/#organization"',
-            '"https://iology.co.uk/#business"',
+            'https://iology.co.uk/#organization',
+            'https://iology.co.uk/#business',
             $data
         );
 
         return $data;
     },
-    20,
+    999,
     2
 );
 
