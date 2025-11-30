@@ -61,7 +61,7 @@ if ( ! empty( $show_banner_option[0] ) && 'Yes' === $show_banner_option[0] && ! 
     <a href="<?= esc_url( $banner_url ? $banner_url : '#' ); ?>">
         <div class="container-xl text-center d-md-flex justify-content-center align-items-center">
             <div class="banner__content">
-                <?= esc_html( get_field( 'banner_text', 'option' ) ); ?>
+                <?= wp_kses_post( get_field( 'banner_text', 'option' ) ); ?>
             </div>
         </div>
     </a>
