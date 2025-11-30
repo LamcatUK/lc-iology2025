@@ -71,6 +71,26 @@ add_filter(
     2
 );
 
+/**
+ * Rewrite Yoast JSON-LD so all references to #organization
+ * point to our #business entity.
+ */
+add_filter(
+    'wpseo_json_ld_output',
+    function ( $data, $context ) {
+
+        // Replace Yoast's phantom ID with your real business ID
+        $data = str_replace(
+            '"https://iology.co.uk/#organization"',
+            '"https://iology.co.uk/#business"',
+            $data
+        );
+
+        return $data;
+    },
+    20,
+    2
+);
 
 /**
  * Output schema markup for the site.
