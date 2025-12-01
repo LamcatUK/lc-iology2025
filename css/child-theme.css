@@ -22948,6 +22948,21 @@ hr {
   margin-left: 1.5rem;
 }
 
+.lc-table {
+  border: 1px solid var(--col-blue-700);
+}
+.lc-table th {
+  background-color: var(--col-blue-700);
+  color: white;
+  font-weight: 600;
+}
+.lc-table tr :not(:first-child) {
+  text-align: center;
+}
+.lc-table td {
+  border-width: 1px;
+}
+
 .has-blue-color,
 .has-blue-color:visited {
   color: #0d6efd;

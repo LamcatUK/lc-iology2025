@@ -88,3 +88,18 @@ hr {
 .fa-ul {
   margin-left: 1.5rem;
 }
+
+.lc-table {
+    border: 1px solid var(--col-blue-700);
+    th {
+        background-color: var(--col-blue-700);
+        color: white;
+        font-weight: 600;
+    }
+    tr :not(:first-child) {
+        text-align: center;
+    }
+    td {
+        border-width: 1px;
+    }
+}
