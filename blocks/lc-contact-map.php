@@ -4,7 +4,7 @@
         <h2>Find Us</h2>
         <div class="row g-4">
             <div class="col-md-5">
-                <div class="mb-4">The practice is located at 50 Ripple Road, close to Barking station and local bus routes.</div>
+                <div class="mb-4"><strong>iology</strong> is located at 50 Ripple Road, a short walk from Barking station and several local bus routes.</div>
                 <div class="mb-4">Walk-ins are accepted when available, though appointments are recommended during busy periods.</div>
                 <div class="open card mb-4">
                     <h3>Opening Hours</h3>
