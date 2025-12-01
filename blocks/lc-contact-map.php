@@ -21,6 +21,9 @@
                             <a href="<?= esc_url( get_field( 'directions', 'options' ) ); ?>"
                                 target="_blank">Get Directions</a>
                         </li>
+                    </ul>
+                    <h4>Ways to get in touch</h4>
+                    <ul class="fa-ul">
                         <li class="mb-1">
                             <span class="fa-li"><i class="fa-solid fa-phone"></i></span>
                             <a
