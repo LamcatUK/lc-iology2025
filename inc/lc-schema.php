@@ -38,6 +38,12 @@ add_filter(
                 continue;
             }
 
+            // Remove WebPage schema on contact page.
+            if ( is_page( 'contact' ) && $piece instanceof \Yoast\WP\SEO\Generators\Schema\WebPage ) {
+                unset( $pieces[ $index ] );
+                continue;
+            }
+
             // Rewrite Yoast WebPage and WebSite references.
             if ( method_exists( $piece, 'context' ) ) {
                 $context_data = $piece->context;
