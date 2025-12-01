@@ -22955,6 +22955,8 @@ hr {
   background-color: var(--col-blue-700);
   color: white;
   font-weight: 600;
+  width: 1%;
+  white-space: nowrap;
 }
 .lc-table tr :not(:first-child) {
   text-align: center;
