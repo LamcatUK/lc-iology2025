@@ -41,8 +41,9 @@ function acf_blocks() {
                 'render_template' => 'blocks/lc-three-cards.php',
                 'mode'            => 'edit',
                 'supports'        => array(
-                    'mode'   => false,
-                    'anchor' => true,
+                    'mode'      => false,
+                    'anchor'    => true,
+                    'className' => true,
                 ),
             )
         );
