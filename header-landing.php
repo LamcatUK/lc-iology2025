@@ -14,27 +14,27 @@ defined( 'ABSPATH' ) || exit;
 
 <head>
     <meta
-        charset="<?php bloginfo('charset'); ?>">
+        charset="<?php bloginfo( 'charset' ); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="profile" href="http://gmpg.org/xfn/11">
     <link rel="preload"
-        href="<?=get_stylesheet_directory_uri()?>/fonts/montserrat-v25-latin-600.woff2"
+        href="<?= esc_url( get_stylesheet_directory_uri() . '/fonts/montserrat-v25-latin-600.woff2' ); ?>"
         as="font" type="font/woff2" crossorigin="anonymous">
     <link rel="preload"
-        href="<?=get_stylesheet_directory_uri()?>/fonts/montserrat-v25-latin-800.woff2"
+        href="<?= esc_url( get_stylesheet_directory_uri() . '/fonts/montserrat-v25-latin-800.woff2' ); ?>"
         as="font" type="font/woff2" crossorigin="anonymous">
     <link rel="preload"
-        href="<?=get_stylesheet_directory_uri()?>/fonts/montserrat-v25-latin-regular.woff2"
+        href="<?= esc_url( get_stylesheet_directory_uri() . '/fonts/montserrat-v25-latin-regular.woff2' ); ?>"
         as="font" type="font/woff2" crossorigin="anonymous">
     <?php
 
-// ORGANIZATION SCHEMA
+    // ORGANIZATION SCHEMA.
 
-    if (get_field('ga_property', 'options')) {
+    if ( get_field( 'ga_property', 'options' ) ) {
         ?>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async
-        src="https://www.googletagmanager.com/gtag/js?id=<?=get_field('ga_property', 'options')?>">
+        src="https://www.googletagmanager.com/gtag/js?id=<?= esc_attr( get_field( 'ga_property', 'options' ) ); ?>">
     </script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -44,12 +44,12 @@ defined( 'ABSPATH' ) || exit;
         }
         gtag('js', new Date());
         gtag('config',
-            '<?=get_field('ga_property', 'options')?>'
+            '<?= esc_attr( get_field( 'ga_property', 'options' ) ); ?>'
         );
     </script>
-    <?php
+        <?php
     }
-    if (get_field('gtm_property', 'options')) {
+    if ( get_field( 'gtm_property', 'options' ) ) {
         ?>
     <!-- Google Tag Manager -->
     <script>
@@ -67,19 +67,19 @@ defined( 'ABSPATH' ) || exit;
                 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
             f.parentNode.insertBefore(j, f);
         })(window, document, 'script', 'dataLayer',
-            '<?=get_field('gtm_property', 'options')?>'
+            '<?= esc_attr( get_field( 'gtm_property', 'options' ) ); ?>'
         );
     </script>
     <!-- End Google Tag Manager -->
-    <?php
+        <?php
     }
-    if (get_field('google_site_verification', 'options')) {
-        echo '<meta name="google-site-verification" content="' . get_field('google_site_verification', 'options') . '" />';
+    if ( get_field( 'google_site_verification', 'options' ) ) {
+        echo '<meta name="google-site-verification" content="' . esc_attr( get_field( 'google_site_verification', 'options' ) ) . '" />';
     }
-    if (get_field('bing_site_verification', 'options')) {
-        echo '<meta name="msvalidate.01" content="' . get_field('bing_site_verification', 'options') . '" />';
+    if ( get_field( 'bing_site_verification', 'options' ) ) {
+        echo '<meta name="msvalidate.01" content="' . esc_attr( get_field( 'bing_site_verification', 'options' ) ) . '" />';
     }
-?>
+    ?>
     <style>
         .cky-consent-container,
         .grecaptcha-badge {

@@ -1,10 +1,13 @@
 <?php
-/* Template Name: Landing Page */
+/**
+ * Template Name: Landing Page
+ *
+ * @package lc-iology2025
+ */
 
-// Exit if accessed directly.
-defined('ABSPATH') || exit;
+defined( 'ABSPATH' ) || exit;
 
-get_header('landing');
+get_header( 'landing' );
 ?>
 <style>
     body {
@@ -35,17 +38,12 @@ get_header('landing');
 </style>
 <main class="mt-4">
     <div class="landing-grid">
-        <img src="<?=get_stylesheet_directory_uri()?>/img/iology-logo--colour.svg"
+        <img src="<?= esc_url( get_stylesheet_directory_uri() . '/img/iology-logo--colour.svg' ); ?>"
             class="logo" width="93" height="32" alt="iology Limited">
-
-
         <a href="https://iology.co.uk/book-appointment/" class="btn btn-primary">Book an Appointment</a>
-
         <a href="https://api.whatsapp.com/send?phone=+447496971203&text=Hi,%20I%27m%20contacting%20you%20from%20the%20iology%20website."
-            class="btn btn-primary">Contact via WhatsApp</a>
-
-        <a href="https://iology.co.uk/leave-review/" class="btn btn-primary">Leave a Review</a>
-
+            target="_blank" class="btn btn-primary">Contact via WhatsApp</a>
+        <a href="https://iology.co.uk/leave-review/" target="_blank" class="btn btn-primary">Leave a Review</a>
     </div>
 </main>
 <div class="footer">
@@ -53,22 +51,19 @@ get_header('landing');
         <div class="row g-4">
             <div class="col-12 text-center">
                 Iology incorporating Aves Opticians<br>
-                55 Ripple Road, Barking,<br>
+                50 Ripple Road, Barking,<br>
                 England, IG11 7PG
             </div>
             <div class="col-12 text-center text-lg-start">
-                <a
-                    href="mailto:<?=get_field('email', 'options')?>"><i
+                <a href="mailto:<?= esc_attr( antispambot( get_field( 'email', 'options' ) ) ); ?>"><i
                         class="fa-solid fa-envelope"></i>
-                    <?=get_field('email', 'options')?></a><br>
-                <a
-                    href="tel:<?=parse_phone(get_field('phone', 'options'))?>"><i
+                    <?= esc_html( antispambot( get_field( 'email', 'options' ) ) ); ?></a><br>
+                <a href="tel:<?= esc_attr( parse_phone( get_field( 'phone', 'options' ) ) ); ?>"><i
                         class="fa-solid fa-phone"></i>
-                    <?=get_field('phone', 'options')?></a><br>
-                <a
-                    href="tel:<?=parse_phone(get_field('mobile', 'options'))?>"><i
+                    <?= esc_html( get_field( 'phone', 'options' ) ); ?></a><br>
+                <a href="tel:<?= esc_attr( parse_phone( get_field( 'mobile', 'options' ) ) ); ?>"><i
                         class="fa-solid fa-mobile-screen"></i>
-                    <?=get_field('mobile', 'options')?></a>
+                    <?= esc_html( get_field( 'mobile', 'options' ) ); ?></a>
             </div>
         </div>
     </div>
@@ -76,7 +71,7 @@ get_header('landing');
 <div class="colophon">
     <div class="container d-flex justify-content-between flex-wrap pb-2 pt-2">
         <div class="text-center mx-auto mb-4 mb-lg-0 ms-lg-0">&copy;
-            <?=date('Y')?> Eyes London Barking
+            <?= esc_html( gmdate( 'Y' ) ); ?> Eyes London Barking
             Ltd t/a iology incorporating Aves Opticians
             Limited. Registered in England no. 11860174
         </div>
@@ -86,7 +81,5 @@ get_header('landing');
         </div>
     </div>
 </div>
-
 <?php
-get_footer('landing');
-?>
+get_footer( 'landing' );
