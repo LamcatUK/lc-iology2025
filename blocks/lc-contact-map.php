@@ -24,17 +24,17 @@
                         <li class="mb-1">
                             <span class="fa-li"><i class="fa-solid fa-phone"></i></span>
                             <a
-                                href="tel:<?= esc_attr( parse_phone( get_field( 'phone', 'options' ) ) ); ?>"><?= esc_html( get_field( 'phone', 'options' ) ); ?></a>
+                                href="tel:<?= esc_attr( parse_phone( get_field( 'phone', 'options' ) ) ); ?>"><strong><?= esc_html( get_field( 'phone', 'options' ) ); ?></strong></a>
                         </li>
                         <li class="mb-1">
                             <span class="fa-li"><i class="fa-solid fa-mobile-screen"></i></span>
                             <a
-                                href="tel:<?= esc_attr( parse_phone( get_field( 'mobile', 'options' ) ) ); ?>"><?= esc_html( get_field( 'mobile', 'options' ) ); ?></a>
+                                href="tel:<?= esc_attr( parse_phone( get_field( 'mobile', 'options' ) ) ); ?>"><strong><?= esc_html( get_field( 'mobile', 'options' ) ); ?></strong></a>
                         </li>
                         <li class="mb-1">
                             <span class="fa-li"><i class="fa-solid fa-envelope"></i></span>
                             <a
-                                href="mailto:<?= esc_attr( get_field( 'email', 'options' ) ); ?>"><?= esc_html( get_field( 'email', 'options' ) ); ?></a>
+                                href="mailto:<?= esc_attr( get_field( 'email', 'options' ) ); ?>"><strong><?= esc_html( get_field( 'email', 'options' ) ); ?></strong></a>
                         </li>
                         <li>
                             <span class="fa-li"><i class="fa-brands fa-whatsapp"></i></span>
