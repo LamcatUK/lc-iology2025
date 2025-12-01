@@ -149,6 +149,21 @@ function lc_output_schema() {
         echo '</script>';
     }
 
+    // Check for custom schema first (works on all pages including contact).
+    $custom_schema = get_field( 'schema' );
+    if ( ! empty( $custom_schema ) ) {
+        // Decode to validate JSON, then re-encode for consistent output.
+        $schema_data = json_decode( $custom_schema, true );
+        if ( json_last_error() === JSON_ERROR_NONE && is_array( $schema_data ) ) {
+            echo '<script type="application/ld+json">';
+            // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+            echo wp_json_encode( $schema_data, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE );
+            echo '</script>';
+            return;
+        }
+    }
+
+    // Fallback contact page schema if no custom schema defined.
     if ( is_page( 'contact' ) ) {
         $contact_schema = array(
             '@context' => 'https://schema.org',
@@ -163,19 +178,5 @@ function lc_output_schema() {
         // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
         echo wp_json_encode( $contact_schema, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE );
         echo '</script>';
-        return;
-    }
-
-    // For all other pages, check if custom schema is defined in ACF.
-    $custom_schema = get_field( 'schema' );
-    if ( ! empty( $custom_schema ) ) {
-        // Decode to validate JSON, then re-encode for consistent output.
-        $schema_data = json_decode( $custom_schema, true );
-        if ( json_last_error() === JSON_ERROR_NONE && is_array( $schema_data ) ) {
-            echo '<script type="application/ld+json">';
-            // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-            echo wp_json_encode( $schema_data, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE );
-            echo '</script>';
-        }
     }
 }
