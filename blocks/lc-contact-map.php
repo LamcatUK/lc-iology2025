@@ -7,7 +7,7 @@
                 <div class="mb-4"><strong>iology</strong> is located at 50 Ripple Road, a short walk from Barking station and several local bus routes.</div>
                 <div class="mb-4">Walk-ins are accepted when available, though appointments are recommended during busy periods.</div>
                 <div class="open card mb-4">
-                    <h3>Opening Hours</h3>
+                    <h3><i class="far fa-clock"></i> Opening Hours</h3>
                     <?= do_shortcode( '[lc_open_short_ajax]' ); ?>
                 </div>
                 <div class="contact card">
