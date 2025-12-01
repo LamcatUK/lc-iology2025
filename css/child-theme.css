@@ -22513,7 +22513,7 @@ strong {
   max-width: 100vw;
 }
 #navbar #top-nav {
-  padding-bottom: 0.5rem;
+  padding-block: 0.5rem;
   font-size: 0.889rem;
   background-color: white;
 }
@@ -22523,9 +22523,15 @@ strong {
   background-repeat: no-repeat;
   background-position: center;
   background-image: url(../img/iology-logo--colour.svg);
-  width: 188px;
-  height: 64px;
+  width: 125px;
+  height: 44px;
   margin-right: 2rem;
+}
+@media (min-width: 1200px) {
+  #navbar #top-nav .navbar-brand {
+    width: 188px;
+    height: 64px;
+  }
 }
 #navbar #top-nav .navbar-toggler {
   color: var(--col-blue-700);
@@ -22548,7 +22554,12 @@ strong {
 }
 #navbar #main-nav {
   background-color: white;
-  height: 1rem;
+  height: 0;
+}
+@media (min-width: 1200px) {
+  #navbar #main-nav {
+    height: 1rem;
+  }
 }
 #navbar #main-nav .container-xl {
   position: relative;
@@ -22863,9 +22874,9 @@ form label {
 }
 
 main {
-  margin-top: 64px;
+  margin-top: 62px;
 }
-@media (min-width: 992px) {
+@media (min-width: 1200px) {
   main {
     margin-top: 90px;
   }

@@ -91,7 +91,7 @@ defined( 'ABSPATH' ) || exit;
     do_action( 'wp_body_open' );
     ?>
     <header id="wrapper-navbar" class="fixed-top p-0">
-        <nav id="navbar" class="navbar navbar-expand-xl d-block" aria-label="Main navigation">
+        <nav id="navbar" class="navbar navbar-expand-xl d-block py-0" aria-label="Main navigation">
             <div id="top-nav">
                 <div class="container-xl d-flex align-items-center justify-content-between">
                     <a href="/" class="navbar-brand logo-link logo" rel="home" aria-label="Iology Homepage"></a>
