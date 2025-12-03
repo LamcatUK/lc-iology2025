@@ -13,7 +13,7 @@ defined( 'ABSPATH' ) || exit;
 <div class="footer">
     <div class="container pt-4 pb-2">
         <div class="row g-4">
-            <div class=" col-lg-6 mb-4">
+            <div class=" col-lg-3 mb-3">
                 <div class="text-center text-md-start mb-3">
                     <img src="<?= esc_url( get_stylesheet_directory_uri() . '/img/iology-logo--wo.svg' ); ?>"
                         class="logo" width="93" height="32" alt="iology Limited">
@@ -22,10 +22,13 @@ defined( 'ABSPATH' ) || exit;
                 50 Ripple Road, Barking,<br>
                 England, IG11 7PG
             </div>
-            <div class="col-md-6 col-lg-4">
+            <div class="col-md-6 col-lg-3">
                 <?= wp_nav_menu( array( 'theme_location' => 'footer_menu1' ) ); ?>
             </div>
-            <div class="col-md-6 col-lg-2">
+            <div class="col-md-6 col-lg-3">
+                <?= wp_nav_menu( array( 'theme_location' => 'footer_menu2' ) ); ?>
+            </div>
+            <div class="col-lg-3">
                 <ul class="fa-ul">
                     <li>
                         <span class="fa-li"><i class="fa-solid fa-envelope"></i></span>
