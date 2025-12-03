@@ -19,6 +19,29 @@ function acf_blocks() {
 
         acf_register_block_type(
             array(
+                'name'            => 'lc_blog_cta',
+                'title'           => __( 'LC Blog CTA' ),
+                'category'        => 'layout',
+                'icon'            => 'cover-image',
+                'render_template' => 'blocks/lc-blog-cta.php',
+                'mode'            => 'edit',
+                'supports'        => array(
+                    'mode'      => false,
+                    'anchor'    => true,
+                    'className' => true,
+                    'align'     => true,
+                    'color'     => array(
+                        'text'       => true,
+                        'background' => true,
+                        'gradients'  => false,
+                    ),
+                    
+                ),
+            )
+        );
+
+        acf_register_block_type(
+            array(
                 'name'            => 'lc_hero',
                 'title'           => 'LC Hero',
                 'category'        => 'layout',
@@ -259,3 +282,6 @@ function modify_core_add_container( $attributes, $content ) {
 	$content = ob_get_clean();
     return $content;
 }
+
+// Note: Avoid manipulating wpautop filters globally. Handle formatting in templates
+// by rendering only non-empty strings and avoiding stray whitespace.

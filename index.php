@@ -1,75 +1,98 @@
 <?php
-/**
- * The main template file
- *
- * @package lc-iology2025
- */
-
-defined( 'ABSPATH' ) || exit;
-
-$page_for_posts = get_option( 'page_for_posts' );
-$bg             = get_the_post_thumbnail_url( $page_for_posts, 'full' );
-
+// Exit if accessed directly.
+defined('ABSPATH') || exit;
 get_header();
+
+$page_for_posts = get_option('page_for_posts');
 
 ?>
 <main id="main">
     <?php
-    $post_page = get_post( $page_for_posts );
+    $post = get_post($page_for_posts);
 
-    if ( $post_page ) {
-        $content = apply_filters( 'the_content', $post_page->post_content );
-        echo '<div class="mb-5">' . wp_kses_post( $content ) . '</div>';
+    if ($post) {
+        $content = apply_filters('the_content', $post->post_content);
+        echo '<div class="mb-5">' . $content . '</div>';
     }
     ?>
     <div class="container-xl pb-5">
-        <div class="news">
+        <?php
+        $categories = get_categories([
+            'hide_empty' => true, // Only include categories with posts.
+            'exclude' => 1, // hide uncategorized.
+        ]);
+
+        if (!empty($categories)) {
+            echo '<div class="insights__categories mb-4">';
+            echo '<a href="/insights/" class="active">All</a>';
+            foreach ($categories as $category) {
+                echo '<a href="' . esc_url(get_category_link($category->term_id)) . '">';
+                echo esc_html($category->name);
+                echo '</a>';
+            }
+            echo '</div>';
+        }
+
+        ?>
+        <div class="news_index__grid">
             <?php
+            $style = 'news_index__card--first';
+            $length = 50;
+            $c = 'news_index__meta--first';
+            while (have_posts()) {
+                the_post();
 
-            // Setup the query arguments.
-            $args = array(
-                'post_type'      => 'post',
-                'post_status'    => 'publish',
-                'posts_per_page' => -1,
-            );
-
-            $query = new WP_Query( $args );
-
-            if ( $query->have_posts() ) {
-                while ( $query->have_posts() ) {
-                    $query->the_post();
-                    $the_date = get_the_date( 'jS F, Y' );
-                    ?>
-                    <a href="<?= esc_url( get_the_permalink() ); ?>" class="news__card mb-4 p-3 d-block text-decoration-none text-dark">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <?= get_the_post_thumbnail( get_the_ID(), 'large', array( 'class' => 'news__img' ) ); ?>
-                            </div>
-                            <div class="col-md-9">
-                                <h2 class="fs-600 has-purple-400-color mb-2">
-                                    <?= esc_html( get_the_title() ); ?>
-                                </h2>
-                                <div class="news__meta d-flex align-items-center fs-300">
-                                    <div>Posted on <?= esc_html( $the_date ); ?></div>
-                                </div>
-                                <div class="news__excerpt text-grey-900 mb-2">
-                                    <?= wp_kses_post( wp_trim_words( get_the_content(), 40 ) ); ?>
-                                </div>
+                $categories = get_the_category();
+            ?>
+                <a href="<?= get_the_permalink() ?>"
+                    class="news_index__card <?= $style ?>">
+                    <div class="news_index__image">
+                        <img src="<?= get_the_post_thumbnail_url(get_the_ID(), 'large') ?>"
+                            alt="">
+                    </div>
+                    <div class="news_index__inner">
+                        <h2><?= get_the_title() ?></h2>
+                        <div class="smallest has-blue-400-color mb-2">
+                            <?= get_the_date() ?>
+                        </div>
+                        <p><?= wp_trim_words(get_the_content(), $length) ?></p>
+                        <div class="news_index__meta <?= $c ?>">
+                            <div class="news_index__categories">
+                                <?php
+                                if ($categories) {
+                                    foreach ($categories as $category) {
+                                        if ($category->term_id == 1) {
+                                            continue;
+                                        }
+                                ?>
+                                        <span class="news_index__category"><?= esc_html($category->name) ?></span>
+                                <?php
+                                    }
+                                }
+                                ?>
                             </div>
                         </div>
-                    </a>
-                    <?php
+                    </div>
+                </a>
+                <?php
+                if ($c != '') {
+                ?>
+                    <section class="cta my-2">
+                        <div class="container-xl px-5 py-4 d-flex justify-content-between align-items-center gap-4 flex-wrap">
+                            <h2 class="has-h-2-font-size mb-0 mx-auto ms-md-0">Book your eye test today</h2>
+                            <a href="/book-appointment/" class="btn btn-primary align-self-center mx-auto me-md-0"><span>Book an Appointment</span></a>
+                        </div>
+                    </section>
+            <?php
                 }
-            } else {
-                echo 'No posts found.';
+                $style = '';
+                $c = '';
+                $length = 20;
             }
-
-            wp_reset_postdata();
             ?>
+            <?= understrap_pagination() ?>
         </div>
     </div>
 </main>
 <?php
-
 get_footer();
-?>

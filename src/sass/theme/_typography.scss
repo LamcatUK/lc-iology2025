@@ -101,10 +101,10 @@ strong {
 }
 
 .smaller {
-    font-size: 0.9rem;
+    font-size: var(--fs-350);
 }
 .smallest {
-    font-size: 0.75rem;
+    font-size: var(--fs-300);
 }
 
 .fs-7 {
