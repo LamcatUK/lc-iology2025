@@ -40,9 +40,8 @@ get_header();
                 <?= wp_kses_post( $img ); ?>
                 <div class="single-blog__read mb-4">
                     <div>
-                        <i class="far fa-calendar-alt"></i> <?= esc_html( get_the_date() ); ?>
+                        <i class="far fa-calendar-alt"></i> <?= esc_html( get_the_date( 'j F, Y' ) ); ?>
                     </div>
-                    |
                     <div>
                         <i class="far fa-clock"></i> <?= wp_kses_post( estimate_reading_time_in_minutes( get_the_content(), 200, true, true ) ); ?>
                     </div>

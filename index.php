@@ -52,8 +52,9 @@ $page_for_posts = get_option('page_for_posts');
                     </div>
                     <div class="news_index__inner">
                         <h2><?= get_the_title() ?></h2>
-                        <div class="smallest has-blue-400-color mb-2">
-                            <?= get_the_date() ?>
+                        <div class="smallest has-blue-400-color mb-2 d-flex align-items-center gap-2">
+                            <span><i class="far fa-calendar-alt"></i> <?= get_the_date( 'j F, Y' ); ?></span>
+                            <span><i class="far fa-clock"></i> <?= wp_kses_post( estimate_reading_time_in_minutes( get_the_content(), 200, true, false ) ); ?> min read</span>
                         </div>
                         <p><?= wp_trim_words(get_the_content(), $length) ?></p>
                         <div class="news_index__meta <?= $c ?>">
