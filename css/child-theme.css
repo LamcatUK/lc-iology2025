@@ -23074,7 +23074,7 @@ form label {
 }
 .single-blog__image {
   aspect-ratio: 16/9;
-  border-radius: var(--border-lg);
+  border-radius: var(--radius-sm);
   margin-bottom: 1rem;
   -o-object-fit: cover;
   object-fit: cover;
