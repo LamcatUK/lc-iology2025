@@ -15,9 +15,9 @@ if ( empty( $services ) ) {
 
 ?>
 <section class="three_cards service_card_slider py-5">
-	<div class="container-xl">
+	<div class="container-xl">	
 		<div class="splide service-slider">
-			<div class="splide__track">
+			<div class="splide__track" style="padding: 1rem 0; margin: -1rem 0;">
 				<ul class="splide__list">
 					<?php
 					foreach ( $services as $service_key ) {
@@ -30,7 +30,7 @@ if ( empty( $services ) ) {
 						}
 
 						// Get the label from ACF field choices.
-						$field        = get_field_object( 'services' );
+						$field         = get_field_object( 'services' );
 						$service_label = $field['choices'][ $service_key ] ?? ucwords( str_replace( '_', ' ', $service_key ) );
 						?>
 					<li class="splide__slide">
