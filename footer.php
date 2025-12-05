@@ -61,7 +61,7 @@ defined( 'ABSPATH' ) || exit;
             Limited. Registered in England no. 11860174
         </div>
         <div class="text-center mx-auto me-lg-0">
-            <a href="/privacy/">Privacy</a> &amp; <a
+            <a href="/privacy-policy/">Privacy</a> &amp; <a
                 href="/cookies/">Cookies</a> | Site by <a href="https://www.lamcat.co.uk/" target="_blank">Lamcat</a>
         </div>
     </div>
