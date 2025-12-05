@@ -13,7 +13,8 @@ $fg = ! empty( $block['textColor'] ) ? 'has-' . $block['textColor'] . '-color' :
 ?>
 <div class="lc-blog-cta <?= esc_attr( $bg . ' ' . $fg ); ?>">
 	<div class="lc-blog-cta__content">
-		<?php if ( get_field( 'title' ) ) {
+		<?php
+		if ( get_field( 'title' ) ) {
 			?>
 			<h2 class="lc-blog-cta__title">
 				<?php the_field( 'title' ); ?>
