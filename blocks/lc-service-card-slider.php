@@ -70,7 +70,7 @@ new Splide('.service-slider', {
 	perMove: 1,
 	gap: '1rem',
 	autoplay: true,
-	interval: 3000,
+	interval: 4000,
 	arrows: false,
 	pagination: false,
 	breakpoints: {

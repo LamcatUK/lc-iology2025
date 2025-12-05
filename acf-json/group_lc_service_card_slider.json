@@ -36,13 +36,13 @@
             },
             "choices": {
                 "eye_tests": "Eye Tests",
-                "frames": "Frames",
+                "frames": "Glasses Frames & Lenses",
                 "contact_lenses": "Contact Lenses",
                 "nhs": "NHS Registration",
-                "childrens": "Children's Eye Tests"
+                "childrens": "Children's Eye Care"
             },
             "default_value": [],
-            "return_format": "array",
+            "return_format": "value",
             "allow_custom": 0,
             "allow_in_bindings": 0,
             "layout": "horizontal",
@@ -70,5 +70,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1764937489
+    "modified": 1764938895
 }
