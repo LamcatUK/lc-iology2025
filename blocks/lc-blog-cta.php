@@ -22,7 +22,7 @@ $fg = ! empty( $block['textColor'] ) ? 'has-' . $block['textColor'] . '-color' :
 		}
 		if ( get_field( 'description' ) ) {
 			?>
-			<div class="lc-blog-cta__description">
+			<div class="lc-blog-cta__description mb-4">
 				<?php the_field( 'description' ); ?>
 			</div>
 			<?php
