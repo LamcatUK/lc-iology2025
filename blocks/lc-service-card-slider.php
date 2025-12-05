@@ -20,8 +20,7 @@ if ( empty( $services ) ) {
 			<div class="splide__track">
 				<ul class="splide__list">
 					<?php
-					foreach ( $services as $service ) {
-						$service_key = $service['value'];
+					foreach ( $services as $service_key ) {
 						$icon        = wp_get_attachment_image_url( get_field( $service_key . '_icon', 'options' ), 'large' );
 						$description = get_field( $service_key . '_description', 'options' );
 						$link        = get_field( $service_key . '_link', 'options' );
@@ -29,16 +28,20 @@ if ( empty( $services ) ) {
 						if ( ! $link ) {
 							continue;
 						}
+
+						// Get the label from ACF field choices.
+						$field        = get_field_object( 'services' );
+						$service_label = $field['choices'][ $service_key ] ?? ucwords( str_replace( '_', ' ', $service_key ) );
 						?>
 					<li class="splide__slide">
 						<div class="card">
 							<?php if ( $icon ) { ?>
 							<div class="card__icon">
-								<img src="<?= esc_url( $icon ); ?>" alt="<?= esc_attr( $service['label'] ); ?>">
+								<img src="<?= esc_url( $icon ); ?>" alt="<?= esc_attr( $service_label ); ?>">
 							</div>
 							<?php } ?>
 							<div class="card__bottom">
-								<h3><?= esc_html( $service['label'] ); ?></h3>
+								<h3><?= esc_html( $service_label ); ?></h3>
 								<?php if ( $description ) { ?>
 								<p><?= esc_html( $description ); ?></p>
 								<?php } ?>
