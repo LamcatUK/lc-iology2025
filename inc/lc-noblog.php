@@ -13,7 +13,7 @@ defined( 'ABSPATH' ) || exit;
  * @return void
  */
 function lc_remove_menus() {
-    remove_menu_page( 'edit.php' ); // Hides the 'Posts' menu.
+	remove_menu_page( 'edit.php' ); // Hides the 'Posts' menu.
 }
 add_action( 'admin_menu', 'lc_remove_menus' );
 
@@ -23,9 +23,9 @@ add_action( 'admin_menu', 'lc_remove_menus' );
  * @return void
  */
 function lc_remove_post_capabilities() {
-    $role = get_role( 'editor' ); // or another role as necessary.
-    $role->remove_cap( 'edit_posts' );
-    $role->remove_cap( 'publish_posts' );
-    $role->remove_cap( 'delete_posts' );
+	$role = get_role( 'editor' ); // or another role as necessary.
+	$role->remove_cap( 'edit_posts' );
+	$role->remove_cap( 'publish_posts' );
+	$role->remove_cap( 'delete_posts' );
 }
 add_action( 'init', 'lc_remove_post_capabilities' );

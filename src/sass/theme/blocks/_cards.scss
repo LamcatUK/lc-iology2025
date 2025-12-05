@@ -59,37 +59,3 @@
     object-fit: cover;
   }
 }
-
-/*
-.three_cards {
-    background-color: $grey-100;
-    a {
-        text-decoration: none;
-    }
-    .card {
-        border-radius: 0.25rem;
-        overflow: hidden;
-        border: none;
-        transition: all 0.2s ease-in-out;
-        box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
-        &__image {
-            width: 100%;
-            aspect-ratio: 16 / 9;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-        &__bottom {
-            background-color: $primary;
-            color: white;
-            font-weight: 600;
-            font-size: 1.167rem;
-            padding: 1rem 0.5rem;
-        }
-        &:hover {
-            box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
-            transform: translateY(2px);
-        }
-    }
-}
-*/
