@@ -52,8 +52,8 @@ defined( 'ABSPATH' ) || exit;
 							WhatsApp</a>
 					</li>
 				</ul>
-				<div class="social">
-					<div class="mb-2">Connect:</div>
+				<div class="social d-flex align-items-center gap-2">
+					<div>Connect:</div>
 					<?= do_shortcode( '[social_icons]' ); ?>
 				</div>
 			</div>
