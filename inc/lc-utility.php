@@ -179,7 +179,7 @@ add_shortcode(
 			'social_icons'
 		);
 
-		$social = get_field( 'socials', 'options' );
+		$social = get_field( 'social', 'options' );
 		if ( ! $social ) {
 			return '';
 		}
