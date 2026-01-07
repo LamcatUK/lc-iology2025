@@ -138,7 +138,7 @@ get_header();
 		array(
 			'post_type'      => 'post',
 			'category__in'   => $ids,
-			'posts_per_page' => 4,
+			'posts_per_page' => 3,
 			'post__not_in'   => array( get_the_ID() ),
 		)
 	);
