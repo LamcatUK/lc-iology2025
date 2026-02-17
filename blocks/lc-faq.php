@@ -48,12 +48,11 @@ if ( $anchor ) {
 
 				<div class="accordion-header" id="heading<?= esc_attr( $c ); ?>">
 
-					<button class="accordion-button collapsed question" type="button" data-bs-toggle="collapse"
+					<button class="accordion-button collapsed question h3" type="button" data-bs-toggle="collapse"
 						itemprop="name"
 						data-bs-target="#c<?= esc_attr( $c ); ?>"
 						aria-expanded="false">
-						<h3><?= esc_html( get_sub_field( 'question' ) ); ?>
-						</h3>
+						<?= esc_html( get_sub_field( 'question' ) ); ?>
 					</button>
 				</div>
 				<div class="answer accordion-collapse collapse"
