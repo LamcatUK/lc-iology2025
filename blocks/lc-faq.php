@@ -54,6 +54,7 @@ if ( $anchor ) {
 						aria-expanded="false">
 						<h3><?= esc_html( get_sub_field( 'question' ) ); ?>
 						</h3>
+					</button>
 				</div>
 				<div class="answer accordion-collapse collapse"
 					id="c<?= esc_attr( $c ); ?>" itemscope="" data-bs-parent="#faqs"
