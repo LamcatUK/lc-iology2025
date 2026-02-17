@@ -64,8 +64,7 @@ defined( 'ABSPATH' ) || exit;
 	<div class="container d-flex justify-content-between flex-wrap pb-2 pt-2">
 		<div class="text-center mx-auto mb-4 mb-lg-0 ms-lg-0">&copy;
 			<?= esc_html( gmdate( 'Y' ) ); ?> Eyes London Barking
-			Ltd t/a iology incorporating Aves Opticians
-			Limited. Registered in England no. 11860174
+			Ltd t/a iology incorporating Aves Opticians. Registered in England no. 11860174
 		</div>
 		<div class="text-center mx-auto me-lg-0">
 			<a href="/privacy-policy/">Privacy</a> &amp; <a
