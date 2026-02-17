@@ -775,4 +775,18 @@ function lc_cf7_honeypot_validation_filter( $result, $tag ) {
 
 	return $result;
 }
+
+add_filter( 'the_content', 'lc_remove_anchor_ids', 20 );
+
+function lc_remove_anchor_ids( $content ) {
+
+    $content = preg_replace(
+        '/(<a[^>]+)\s+id="[^"]*"/i',
+        '$1',
+        $content
+    );
+
+    return $content;
+}
+
 ?>
