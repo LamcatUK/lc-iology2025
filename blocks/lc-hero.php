@@ -13,8 +13,17 @@ $banner_url         = $banner_link['url'] ?? '';
 $show_banner_option = get_field( 'show_banner', 'option' );
 $is_banner_page     = $banner_url && is_page( basename( $banner_url ) );
 
-// Add margin if we're on the banner page (banner won't show).
-$margin = $is_banner_page ? 'mb-5' : '';
+// Add page slugs here where the banner should not show.
+$hide_banner_slugs = array(
+	'childrens-eye-tests',
+	'book-appointment',
+	'contact',
+);
+
+$is_hidden_slug = ! empty( $hide_banner_slugs ) && is_page( $hide_banner_slugs );
+
+// Add margin if we're on a page where the banner won't show.
+$margin = ( $is_banner_page || $is_hidden_slug ) ? 'mb-5' : '';
 
 ?>
 <!-- hero -->
@@ -53,8 +62,8 @@ $margin = $is_banner_page ? 'mb-5' : '';
 </section>
 <?php
 
-// Show banner if enabled and not on the banner page.
-if ( ! empty( $show_banner_option[0] ) && 'Yes' === $show_banner_option[0] && ! $is_banner_page ) {
+// Show banner if enabled and not on excluded pages.
+if ( ! empty( $show_banner_option[0] ) && 'Yes' === $show_banner_option[0] && ! $is_banner_page && ! $is_hidden_slug ) {
 	?>
 <!-- banner -->
 <section class="banner py-1 mb-5">
