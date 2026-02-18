@@ -18,6 +18,7 @@ $hide_banner_slugs = array(
 	'childrens-eye-tests',
 	'book-appointment',
 	'contact',
+	'nhs-registrations',
 );
 
 $is_hidden_slug = ! empty( $hide_banner_slugs ) && is_page( $hide_banner_slugs );
