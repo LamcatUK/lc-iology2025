@@ -91,7 +91,7 @@ function numeric_posts_nav() {
  * @return void
  */
 function lc_post_nav() {
-    ?>
+	?>
 <div class="d-flex justify-content-between">
 	<?php
 	$prev_post_obj = get_adjacent_post( '', '', true );

@@ -23295,6 +23295,16 @@ hr {
   background-color: var(--col-white);
 }
 
+.callout {
+  margin-inline: 0.5rem;
+  margin-block: 0.5rem;
+  border: 1px solid var(--col-blue-100);
+  border-radius: 1rem;
+  padding: 1rem;
+  background-color: color-mix(in srgb, var(--col-blue-100) 40%, white);
+  font-size: var(--fs-350);
+}
+
 .has-blue-color,
 .has-blue-color:visited {
   color: #0d6efd;
