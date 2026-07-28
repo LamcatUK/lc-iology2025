@@ -118,6 +118,22 @@ function lc_output_schema() {
 				'https://www.instagram.com/iology1',
 				'https://www.google.com/maps/place/?q=place_id:ChIJIaUhT22m2EcRauJmDuJeaqs',
 			),
+			'employee'    => array(
+				array(
+					'@type'         => 'Person',
+					'name'          => 'Samir Rao',
+					'jobTitle'      => 'Dispensing Optician',
+					'hasCredential' => array(
+						'@type'             => 'EducationalOccupationalCredential',
+						'credentialCategory' => 'professional certification',
+						'recognizedBy'      => array(
+							'@type' => 'Organization',
+							'name'  => 'General Optical Council',
+						),
+						'identifier'        => 'D-13391',
+					),
+				),
+			),
 		);
 
 		// Add opening hours from plugin if available.

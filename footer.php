@@ -21,6 +21,7 @@ defined( 'ABSPATH' ) || exit;
 				Iology incorporating Aves Opticians<br>
 				50 Ripple Road, Barking,<br>
 				England, IG11 7PG
+				<p class="mt-3"><a href="/iology-overview/">About iology</a></p>
 			</div>
 			<div class="col-md-6 col-lg-3">
 				<?= wp_nav_menu( array( 'theme_location' => 'footer_menu1' ) ); ?>
