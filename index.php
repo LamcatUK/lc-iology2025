@@ -27,6 +27,7 @@ $page_for_posts = get_option('page_for_posts');
 	?>
 	<div class="container-xl pb-5">
 		<?php
+		/*
 		$categories = get_categories(
 			array(
 				'hide_empty' => true, // Only include categories with posts.
@@ -44,7 +45,7 @@ $page_for_posts = get_option('page_for_posts');
 			}
 			echo '</div>';
 		}
-
+		*/
 		?>
 		<div class="news_index__grid">
 			<?php
