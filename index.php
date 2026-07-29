@@ -73,6 +73,7 @@ $page_for_posts = get_option('page_for_posts');
 						<div class="news_index__meta <?= esc_attr( $c ); ?>">
 							<div class="news_index__categories">
 								<?php
+								/*
 								if ( $categories ) {
 									foreach ( $categories as $category ) {
 										if ( 1 === $category->term_id ) {
@@ -83,6 +84,7 @@ $page_for_posts = get_option('page_for_posts');
 										<?php
 									}
 								}
+								*/
 								?>
 							</div>
 						</div>
