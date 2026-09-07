@@ -32,8 +32,8 @@ add_filter(
 				continue;
 			}
 
-			// Remove Yoast Person (author schema).
-			if ( $piece instanceof \Yoast\WP\SEO\Generators\Schema\Person ) {
+			// Remove Yoast Person (site-represents) but keep the post Author piece.
+			if ( $piece instanceof \Yoast\WP\SEO\Generators\Schema\Person && ! $piece instanceof \Yoast\WP\SEO\Generators\Schema\Author ) {
 				unset( $pieces[ $index ] );
 				continue;
 			}
@@ -79,6 +79,106 @@ add_filter(
 	20,
 	2
 );
+
+/**
+ * Canonical author data for Samir Rao.
+ *
+ * @param string $id Person @id to use.
+ * @return array
+ */
+function lc_samir_person_data( $id ) {
+	return array(
+		'@type'         => 'Person',
+		'@id'           => $id,
+		'name'          => 'Samir Rao',
+		'jobTitle'      => 'Dispensing Optician',
+		'worksFor'      => array(
+			'@id' => 'https://iology.co.uk/#business',
+		),
+		'hasCredential' => array(
+			'@type'              => 'EducationalOccupationalCredential',
+			'credentialCategory' => 'professional certification',
+			'recognizedBy'       => array(
+				'@type' => 'Organization',
+				'name'  => 'General Optical Council',
+			),
+			'identifier'         => 'D-13391',
+		),
+	);
+}
+
+/**
+ * Force schema authors to Samir Rao on single posts.
+ *
+ * @param array $graph Yoast schema graph.
+ * @return array
+ */
+function lc_fix_article_author( $graph ) {
+	if ( ! is_singular( 'post' ) || ! is_array( $graph ) ) {
+		return $graph;
+	}
+	$author_id  = 'https://iology.co.uk/#samir-rao';
+	$has_person = false;
+	foreach ( $graph as $i => $piece ) {
+		if ( ! is_array( $piece ) || ! isset( $piece['@type'] ) ) {
+			continue;
+		}
+		$types = (array) $piece['@type'];
+		if ( isset( $graph[ $i ]['author'] ) && is_array( $graph[ $i ]['author'] ) ) {
+			$graph[ $i ]['author'] = array( '@id' => $author_id );
+		}
+		if ( in_array( 'Person', $types, true ) ) {
+			$graph[ $i ] = lc_samir_person_data( $author_id );
+			$has_person  = true;
+		}
+	}
+	unset( $piece );
+	if ( ! $has_person ) {
+		$graph[] = lc_samir_person_data( $author_id );
+	}
+	return $graph;
+}
+add_filter( 'wpseo_schema_graph', 'lc_fix_article_author', 20, 1 );
+
+/**
+ * Force the meta author tag to Samir Rao on single posts.
+ *
+ * @param string $author_name Author display name.
+ * @return string
+ */
+function lc_fix_meta_author( $author_name ) {
+	if ( ! is_singular( 'post' ) ) {
+		return $author_name;
+	}
+	return 'Samir Rao';
+}
+add_filter( 'wpseo_meta_author', 'lc_fix_meta_author', 20, 1 );
+
+/**
+ * Force the Slack/Twitter "Written by" tag to Samir Rao on single posts.
+ *
+ * @param array $data Enhanced Slack sharing data.
+ * @return array
+ */
+function lc_fix_slack_author( $data ) {
+	if ( ! is_singular( 'post' ) || ! is_array( $data ) ) {
+		return $data;
+	}
+	$post_id = get_queried_object_id();
+	if ( $post_id ) {
+		$old = get_the_author_meta( 'display_name', (int) get_post_field( 'post_author', $post_id ) );
+		if ( is_string( $old ) && '' !== $old ) {
+			foreach ( $data as $label => $value ) {
+				if ( $value === $old ) {
+					$data[ $label ] = 'Samir Rao';
+				}
+			}
+			unset( $value );
+		}
+	}
+	return $data;
+}
+add_filter( 'wpseo_enhanced_slack_data', 'lc_fix_slack_author', 20, 1 );
 
 /**
  * Output schema markup for the site.

@@ -40,6 +40,9 @@ get_header();
 				<?= wp_kses_post( $img ); ?>
 				<div class="single-blog__read mb-4">
 					<div>
+						<i class="far fa-user"></i> <?= esc_html__( 'By Samir Rao', 'lc-iology2025' ); ?>
+					</div>
+					<div>
 						<i class="far fa-calendar-alt"></i> <?= esc_html( get_the_date( 'j F, Y' ) ); ?>
 					</div>
 					<div>
