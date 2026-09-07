@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../../plugins/lc-theme-options-plugin"
+		}
+	],
+	"settings": {}
+}

@@ -1,5 +1,64 @@
 @import "theme/child_theme_variables"; // <------- Add your variables into this file. Also add variables to overwrite Bootstrap variables here
-@import "assets/bootstrap5/bootstrap"; // <------- Loads Bootstrap
+
+// Bootstrap 5 — trimmed import (replaces the umbrella "assets/bootstrap5/bootstrap").
+// Order matches Bootstrap's own bootstrap.scss import stack, so it's safe to
+// re-enable something later — just uncomment the line, in place.
+//
+// Configuration — required by everything below, never remove
+@import "assets/bootstrap5/functions";
+@import "assets/bootstrap5/variables";
+@import "assets/bootstrap5/maps";
+@import "assets/bootstrap5/mixins";
+@import "assets/bootstrap5/utilities";
+
+// Layout & components — in use
+@import "assets/bootstrap5/root";
+@import "assets/bootstrap5/reboot";
+@import "assets/bootstrap5/type";
+@import "assets/bootstrap5/images";
+@import "assets/bootstrap5/containers";
+@import "assets/bootstrap5/grid";
+@import "assets/bootstrap5/tables"; // understrap/theme/_blocks.scss extends .table for the WP table block
+@import "assets/bootstrap5/forms"; // contact-form7.scss extends .form-control
+@import "assets/bootstrap5/buttons";
+@import "assets/bootstrap5/transitions"; // .collapse/.collapsing — navbar toggler + FAQ accordion
+// @import "assets/bootstrap5/dropdown"; // not used
+// @import "assets/bootstrap5/button-group"; // not used
+@import "assets/bootstrap5/nav";
+@import "assets/bootstrap5/navbar";
+@import "assets/bootstrap5/card";
+@import "assets/bootstrap5/accordion"; // FAQ block + single.php quick-links
+// @import "assets/bootstrap5/breadcrumb"; // not used — Yoast breadcrumbs use their own markup
+@import "assets/bootstrap5/pagination"; // understrap_pagination()
+// @import "assets/bootstrap5/badge"; // not used
+// @import "assets/bootstrap5/alert"; // not used
+// @import "assets/bootstrap5/progress"; // not used
+// @import "assets/bootstrap5/list-group"; // not used
+// @import "assets/bootstrap5/close"; // not used — no .btn-close in markup
+// @import "assets/bootstrap5/toasts"; // not used
+// @import "assets/bootstrap5/modal"; // not used
+// @import "assets/bootstrap5/tooltip"; // not used
+// @import "assets/bootstrap5/popover"; // not used
+// @import "assets/bootstrap5/carousel"; // not used — sliders are Splide.js, not Bootstrap Carousel
+// @import "assets/bootstrap5/spinners"; // not used
+// @import "assets/bootstrap5/offcanvas"; // not used
+// @import "assets/bootstrap5/placeholders"; // not used
+
+// Helpers (clearfix, ratio, stretched-link, vr, visually-hidden, stacks, ...)
+@import "assets/bootstrap5/helpers/position"; // .fixed-top / .sticky-top — header.php's fixed header
+// @import "assets/bootstrap5/helpers/clearfix"; // not used
+// @import "assets/bootstrap5/helpers/color-bg"; // not used
+// @import "assets/bootstrap5/helpers/colored-links"; // not used
+// @import "assets/bootstrap5/helpers/ratio"; // not used
+// @import "assets/bootstrap5/helpers/stacks"; // not used
+// @import "assets/bootstrap5/helpers/visually-hidden"; // not used — understrap.scss uses the visually-hidden() *mixin* directly, not this class
+// @import "assets/bootstrap5/helpers/stretched-link"; // not used
+// @import "assets/bootstrap5/helpers/text-truncation"; // not used
+// @import "assets/bootstrap5/helpers/vr"; // not used
+
+// Utilities — generates the d-flex/d-none/justify-content-*/sticky-top/etc. classes actually used
+@import "assets/bootstrap5/utilities/api";
+
 @import "assets/understrap/theme/understrap"; // <------- Loads the Understrap defaults. Just a few classes to incorporate BS in WP
 
 // Font Awesome Icon fonts

@@ -1,9 +1,13 @@
+/* Blog */
+
 .news_index__grid .cta {
   background-color: var(--col-blue-700);
   color: var(--col-white);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-sm);
-  transition: transform var(--transition), box-shadow var(--transition),
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition),
     background-color var(--transition);
 }
 
@@ -22,7 +26,9 @@
     color: var(--col-black);
     text-transform: uppercase;
     letter-spacing: 1px;
-    transition: color var(--transition), background-color var(--transition);
+    transition:
+      color var(--transition),
+      background-color var(--transition);
     &:hover {
       color: var(--col-black);
       background-color: var(--col-grey-100);
@@ -56,7 +62,9 @@
     font-weight: var(--fw-400);
     background-color: var(--col-grey-100);
     box-shadow: var(--shadow-2);
-    transition: transform var(--transition), box-shadow var(--transition),
+    transition:
+      transform var(--transition),
+      box-shadow var(--transition),
       background-color var(--transition);
     &:hover {
       .news_index__image img {
@@ -225,7 +233,6 @@
         }
         a {
           text-decoration: none;
-
         }
       }
     }
@@ -267,7 +274,9 @@
     height: 100%;
     border-radius: var(--border-sm);
     box-shadow: var(--shadow-lg);
-    transition: box-shadow var(--transition), transform var(--transition);
+    transition:
+      box-shadow var(--transition),
+      transform var(--transition);
     &:hover {
       transform: translateY(2px);
       box-shadow: var(--shadow-sm);

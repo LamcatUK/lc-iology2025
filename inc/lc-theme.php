@@ -14,6 +14,7 @@ require_once LC_THEME_DIR . '/inc/lc-block-usage.php';
 require_once LC_THEME_DIR . '/inc/lc-acf-theme-palette.php';
 require_once LC_THEME_DIR . '/inc/lc-schema.php';
 require_once LC_THEME_DIR . '/inc/lc-blocks.php';
+require_once LC_THEME_DIR . '/inc/lc-cf7-conditional.php';
 require_once LC_THEME_DIR . '/inc/lc-news.php';
 
 /**
